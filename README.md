@@ -1,3 +1,1 @@
-You must for run:
-1. docker compose -f docker-compose.yml build
-2. docker compose -f docker-compose.yml up -d
+You must run command "docker compose up --build" or "docker compose --build -d"
