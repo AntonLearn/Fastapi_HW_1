@@ -15,7 +15,7 @@ POSTGRES_PORT = os.getenv("POSTGRES_PORT", default="5432")
 
 HOST_LOCATION = os.getenv("HOST_LOCATION", default="127.0.0.1")
 PORT_LOCATION = int(os.getenv("PORT_LOCATION", default="9000"))
-DROP_ALL_TABLES = bool(os.getenv("DROP_ALL_TABLES", default=False))
+DROP_ALL_TABLES = os.getenv("DROP_ALL_TABLES", default="Off")
 
 PG_DSN = (f'postgresql{POSTGRES_DRIVER}://{POSTGRES_USER}:{POSTGRES_PASSWORD}@'
           f'{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}')
