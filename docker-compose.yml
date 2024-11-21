@@ -1,0 +1,27 @@
+version: "3.7"
+
+volumes:
+  pgdata:
+
+services:
+  app:
+    build: ./app
+    ports:
+      - 9000:80
+    container_name: app
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    command: sh -c "uvicorn app:app --host 0.0.0.0 --port 80"
+    hostname: app
+  db:
+    image: postgres:16-alpine
+    container_name: db
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    hostname: db
