@@ -7,7 +7,7 @@ from config import DROP_ALL_TABLES
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    if DROP_ALL_TABLES:
+    if DROP_ALL_TABLES != 'Off':
         await delete_tables()
         print('DATABASE INITIALIZED')
     await create_tables()
